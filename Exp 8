@@ -1,0 +1,54 @@
+       for(int i=1;i<=30;i++)
+    {
+    try
+    {
+       Thread.sleep(1000);
+    }
+    catch(InterruptedException e)
+    {
+        System.out.println(e);
+    }
+        if(i%2==0)
+    {
+      System.out.println(i);  
+    }
+   }
+      System.out.println("even numbers are printed");
+    }  
+   
+}
+class Odd extends Thread
+{
+    OddOrEven oe;
+    Odd( OddOrEven oe)
+    {
+        this.oe=oe;
+    }
+    public void run()
+    {
+        oe.Oddnumbers();
+    }
+}
+class Even extends Thread
+{
+    OddOrEven oe;
+    Even( OddOrEven oe)
+    {
+        this.oe=oe;
+    }
+    public void run()
+    {
+        oe.Evennumbers();
+    }
+}
+public class Main
+{
+public static void main (String[] args)
+{
+   OddOrEven obj = new OddOrEven();
+   Odd o =new Odd(obj);
+   Even e = new Even(obj);
+    o.start();
+    e.start();
+    }
+}*/
